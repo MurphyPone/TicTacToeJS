@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Tic-Tac-Toe with HashFunction</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="TicTacToe.js"></script>
+  <script src="TicTacToeHashCode.js"></script>
+  <script src="script.js"></script>
+
+  <style>
+    .body {
+    }
+
+    .banner {
+      background: gray;
+      color: white;
+      border-radius: 20px 0 20px 0;
+      text-align: center;
+      font-family: Helvetica;
+    }
+
+    .grid {
+      width: 600px;
+      height: 600px;
+      margin: 0 auto;
+      background-color: black; /* change color scheme from not ugly*/
+      color: #fff;
+      border: 6px solid black;
+      border-radius: 12px;
+      display: grid;
+      grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    }
+
+    .cell {
+      border: 6px solid white;
+      border-radius: 2px;
+      font-family: Helvetica;
+      font-weight: bold;
+      font-size: 4em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="banner">
+    <h1>Tic Tac Toe</h1>
+  </div>
+
+  <div class="grid">
+    <div class="cell" id="cell-0"></div>
+    <div class="cell" id="cell-1"></div>
+    <div class="cell" id="cell-2"></div>
+    <div class="cell" id="cell-3"></div>
+    <div class="cell" id="cell-4"></div>
+    <div class="cell" id="cell-5"></div>
+    <div class="cell" id="cell-6"></div>
+    <div class="cell" id="cell-7"></div>
+    <div class="cell" id="cell-8"></div>
+  </div>
+
+  <div class="analysis">
+    <button onclick="randomSetup()" style="float:right;">Randomize</button>
+    <h1>Analysis:</h1>
+    <h5>is win:</h5>
+
+  </div>
+
+</body>
+
+</html>
