@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>Tic-Tac-Toe with HashFunction</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
   <script src="TicTacToeHashCode.js"></script>
   <script src="script.js"></script>
   <style>
@@ -16,30 +17,27 @@
       display: inline;
     }
 
-    /*
-    .banner {
-      background: gray;
-      color: white;
-      border-radius: 20px 0 20px 0;
-      text-align: center;
-      font-family: Helvetica;
-    } */
+    h5 {
+      font-weight: normal;
+    }
 
     .grid {
-      width: 600px;
-      height: 600px;
+      width: 500px;
+      height: 500px;
       margin: 0 auto;
-      background-color: black; /* change color scheme from not ugly*/
+      background-color: #df681b;
       color: #fff;
-      border: 6px solid black;
-      border-radius: 12px;
+      border: 6px solid;
+      border-color: #f0b111;
+      border-radius: 10px;
       display: grid;
       grid-template: repeat(3, 1fr) / repeat(3, 1fr);
     }
 
     .cell {
-      border: 6px solid white;
+      border: 6px solid #f0b111;
       border-radius: 2px;
+      margin: 5px;
       font-family: Helvetica;
       font-weight: bold;
       font-size: 4em;
@@ -48,12 +46,58 @@
       align-items: center;
     }
 
-    .analysis {
+    .about {
       font-family: Helvetica;
       margin-top: 5px;
       padding: 5px;
       border-color: black;
       border-top-style: solid;
+    }
+
+    .button {
+      background-color: black;
+      width: 125px;
+      border-color: black;
+      border-width: 2px;
+      color: white;
+      padding: 10px 20px;
+      margin: 4px;
+      margin-right: 5px;
+      text-align: center;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .button:hover {
+      color: black;
+      background-color: white;
+      border-color: black;
+      border-width: 2px;
+    }
+
+    .buttons {
+      float: right;
+      display: inline-grid;
+    }
+
+    .analyis {
+      float: left;
+      border-color: black;
+      width: 21%;
+    }
+
+    .how-to {
+      float: left;
+      margin-top: 2px;
+      border-left-style: solid;
+      padding-left: 5px;
+    }
+
+    .example {
+      display: inline-block;
+      border-top-style: solid;
+      padding: 5px;
+      margin: 5px;
     }
   </style>
 </head>
@@ -77,14 +121,35 @@
 
   </div>
 
-  <div class="analysis">
-    <button onclick="randomize()" style="float:right;">Randomize</button>
-    <button onclick="clear()" style="float:right;">Clear</button>
+  <div class="about">
 
-    <h1 style="padding: none;"><u>Analysis:</u></h1>
-    <h5 id='hash'>Board hash value: </h5>
-    <h5 id='is-win'>Is valid win: </h5>
+    <div class="analyis">
+      <div class="buttons">
+        <input type="button" class="button" value="Randomize" onclick="board.randomize();"></input>
+        <input type="button" class="button" value="Clear" onclick="board.clearB();"></input>
+        <input type="button" class="button" value="Winner" onclick="board.displayWinner();"></input>
+      </div>
 
+
+      <h2 style="padding: none; margin: 2px;"><u>Analysis</u></h1>
+      <h5 id='hash'>Board hash value: </h5>
+      <h5 id='is-win'>Is valid win: </h5>
+    </div>
+
+    <div class="how-to">
+      <h2 style="padding: none; margin: 2px;"><u>How it Works</u></h1>
+      <h5 style="padding: 2px; margin: 2px;">&#8226; Click on a tile to cycle it's token from 'x', 'o', or ' '</h5>
+      <h5 style="padding: 2px; margin: 2px;">&#8226; With three tokens on a board with nine space, there are 3<sup>9</sup>
+         possible combinations of game states, and only about 1400 <i>valid</i> gamestates with a winner.<br />
+         In a valid & winning gamestate, the difference between played tokens must not be greater than 1.</h5>
+      <h5 style="padding: 2px; margin: 2px;">&#8226; This program optimizes the runtime of the game logic required to check if a given board can be considered a valid winner
+        by using a hash function which maps <br />each of the board spaces and the respective tokens played in that spot to a value between 0 and 3<sup>9</sup>-1, summing each of the space's
+        values<br /> and using that integer as the index for the lookup table containing the validity of all the possible gamestates.</h5>
+    </div>
+
+  </div>
+  <div class="example">
+    <h4 id="formula" style="padding: 2px; margin: 2px;"></h4>
   </div>
 
 </body>
