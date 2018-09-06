@@ -7,18 +7,23 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="TicTacToeHashCode.js"></script>
   <script src="script.js"></script>
-
   <style>
     .body {
+      padding-bottom: 5px;
     }
 
+    h1 {
+      display: inline;
+    }
+
+    /*
     .banner {
       background: gray;
       color: white;
       border-radius: 20px 0 20px 0;
       text-align: center;
       font-family: Helvetica;
-    }
+    } */
 
     .grid {
       width: 600px;
@@ -42,31 +47,43 @@
       justify-content: center;
       align-items: center;
     }
+
+    .analysis {
+      font-family: Helvetica;
+      margin-top: 5px;
+      padding: 5px;
+      border-color: black;
+      border-top-style: solid;
+    }
   </style>
 </head>
 
 <body>
 
-  <div class="banner">
+  <!--div class="banner">
     <h1>Tic Tac Toe</h1>
-  </div>
+  </div-->
 
   <div class="grid">
-    <div class="cell" id="cell-0"></div>
-    <div class="cell" id="cell-1"></div>
-    <div class="cell" id="cell-2"></div>
-    <div class="cell" id="cell-3"></div>
-    <div class="cell" id="cell-4"></div>
-    <div class="cell" id="cell-5"></div>
-    <div class="cell" id="cell-6"></div>
-    <div class="cell" id="cell-7"></div>
-    <div class="cell" id="cell-8"></div>
+    <div class="cell" id="cell-0" onclick="cycle('#cell-0')"></div>
+    <div class="cell" id="cell-1" onclick="cycle('#cell-1')"></div>
+    <div class="cell" id="cell-2" onclick="cycle('#cell-2')"></div>
+    <div class="cell" id="cell-3" onclick="cycle('#cell-3')"></div>
+    <div class="cell" id="cell-4" onclick="cycle('#cell-4')"></div>
+    <div class="cell" id="cell-5" onclick="cycle('#cell-5')"></div>
+    <div class="cell" id="cell-6" onclick="cycle('#cell-6')"></div>
+    <div class="cell" id="cell-7" onclick="cycle('#cell-7')"></div>
+    <div class="cell" id="cell-8" onclick="cycle('#cell-8')"></div>
+
   </div>
 
   <div class="analysis">
     <button onclick="randomize()" style="float:right;">Randomize</button>
-    <h1>Analysis:</h1>
-    <h5 id="#is-win">is win:</h5>
+    <button onclick="clear()" style="float:right;">Clear</button>
+
+    <h1 style="padding: none;"><u>Analysis:</u></h1>
+    <h5 id='hash'>Board hash value: </h5>
+    <h5 id='is-win'>Is valid win: </h5>
 
   </div>
 

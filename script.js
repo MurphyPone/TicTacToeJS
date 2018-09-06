@@ -1,11 +1,20 @@
-var test;
+var board;
 
 $(function() { //On ready
 
-    test = new TicTacToeHashCode();
+    board = new TicTacToeHashCode();
 
 });
 
 function randomize() {
-  test.randomize();
+  board.randomize();
+}
+
+function cycle(cell) {
+  board.cycle(cell);
+}
+
+function clear() {
+  board.clear();
+  console.log("outer");
 }
