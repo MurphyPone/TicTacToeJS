@@ -1,5 +1,3 @@
-xxooo
-ooxxx
 x xooo
 xx ooo
 xxx oo
@@ -123,7 +121,6 @@ xxoxoxo
 xxoxoox
 xxoox ox
 xxooxo x
-xxooo
 xxooo xx
 xxooo xo
 xxooo ox
@@ -849,6 +846,7 @@ xooox o x
 xoooxx  x
 xoooxxxox
 xoooxxoxx
+oooxxoxx
 xoooxxoox
 xoooxo  x
 xoooxoxxo
